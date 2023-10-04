@@ -12,7 +12,7 @@
 
 ## 2. 물리설정
 - 기본적으로 물리설정을 안해놔서 오브젝트를 올려놔도 그대로 고정된 상태를 유지함
-- detail창의 physics에서 sumulate physics 활성화 
+- detail창의 physics에서 simulate physics 활성화 
 - enable gravity 둥둥 떠다니는 상태
 - Mass 기본적으로 false
 
@@ -35,3 +35,32 @@
 - 노드에서 왼쪽에 있으면 입력이고 노드가 다룰 수 있는 데이터라는 뜻, 오른쪽에 있으면 그 노드가 제공하는 데이터
 - excution pin : 노드를 언제 실행할 지 결정
 - 데이터핀은 노드로 무엇을 실행할지 정하며 실행핀이 실행 시간을 결정
+
+## 4. adding impulse
+- force는 정해진 시간동안 가해지는 반면 impulse 는 즉각적임
+* Force = Mass * Acceleration
+* IMpulse = Mass * Velocity Change
+- bp 에서 space bar 검색
+- 스페이스바를 눌럿을때에 대한 노드하나, 뗄때 반응하는 노드하나 총 두개가 존재
+- static mesh component에서 시작한 노드로 impuse를 검색 add impulse 사용. 이것을 space bar와 연결
+- z축의 impulse에 질량값의 100정도를 곱한값을 사용해보기
+- val change : 질랴을 무시하고 내가 원하는 속력만 쓰도록 사용가능
+
+## 5. blueprint class and instances
+- detail창에서의 bp버튼을 누르면 프리팹같이 재사용할 수 있는 블루프린트 객체를 생성가능
+- 대부분 BP_{obj_name} 식으로 네이밍 작성
+- BP 객체가 에디터에서 프로퍼티를 변경하면 모든 instance에 대해 해당 속성이 변경됨
+- simulate physics
+
+## 6. spawning actors
+- spawn actor 검색
+- press 버튼에서 연결해서 생성
+- 만들 bp클래스를 지정 드롭다운 박스를 사용해서 스폰할 물체를 선택
+- transform > location, rotation, scale
+- split struct pin 선택으로 위치 회전 스케일을 설정 가능
+- return value pin > output of a node
+- 우리가 생성한 오브젝트에 impulse를 연결 
+- 오브젝트를 생성 > static mesh component를 가져오고 > 그 컴포넌트에 impulse를 추가
+
+## 7. data types
+- 진짜흔오야 이거는 모르면 안되는거 알지?
