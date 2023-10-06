@@ -75,3 +75,18 @@
     - pawn output 핀을 이용해 get actor location을 이용해 위치를 받아옴
     - 새 반환색은 노란색의 벡터반환 output 이것을 spawnactor 의 location에 연결
     - 그리고 impuls 방향을 z을 없애고 앞 방향을 뜻하는 x축을사용. 이떄 방향을 잘 확인해서 양수값을 줄지 음수값을 줄지 잘 확인
+
+## 9. rotation
+- 레벨 블루프린트에서 plyer pawn 에서 get actor rotation을 사용
+- 이것을 spawn actor의 transform rotation으로 연결
+- 카메라의 회전과 actor pawn의 회전을 별개로 취급함
+    - 그회전을 반영하기위해 player pawn의 get control ratation을 사용
+
+## 10. get forward vecotr
+- 위에서 작업한 대로 하면 발사되는 발사체는 카메라 회전의 영향을 받게 됨.
+- 전방벡터는 회전한 x방향, 회전한 다음 x축을 바라보는 방향
+- 그 벡터의 길이는 항상 1임 따라서 충격량을 구하려면 우리가 원하는 값으로만 곱하면됨
+- 새로운 발사체에 쿼리를 줌으로써 회전을 구현
+- spawn actor 또는 static mesh component에서 get forward vector를 검색, get actor forward vector를 가져와서 add impulse에 넣어줌
+- get actor forward vector에서 return 값에서 multiply 를가져와 이것을 사용 
+    - 두번쨰 핀(노란색 아래)을 우클릭하면 convert핀으로 float으로 변환 그 값을 add impulse에 넣어줌0
