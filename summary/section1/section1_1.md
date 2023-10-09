@@ -53,6 +53,7 @@
 - simulate physics
 
 ## 6. spawning actors
+- bp간 연결 끊으려면 alt + 클릭
 - spawn actor 검색
 - press 버튼에서 연결해서 생성
 - 만들 bp클래스를 지정 드롭다운 박스를 사용해서 스폰할 물체를 선택
