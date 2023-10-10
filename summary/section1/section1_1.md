@@ -90,4 +90,50 @@
 - 새로운 발사체에 쿼리를 줌으로써 회전을 구현
 - spawn actor 또는 static mesh component에서 get forward vector를 검색, get actor forward vector를 가져와서 add impulse에 넣어줌
 - get actor forward vector에서 return 값에서 multiply 를가져와 이것을 사용 
-    - 두번쨰 핀(노란색 아래)을 우클릭하면 convert핀으로 float으로 변환 그 값을 add impulse에 넣어줌0
+    - 두번쨰 핀(노란색 아래)을 우클릭하면 convert핀으로 float으로 변환 그 값을 add impulse에 넣어줌
+
+## 11. Geometry brushes
+- file > new level > template default > create
+- tool bar > Place Actor's panel > geometry
+- 만들면서 지오매트리를 구성하거나, 빼면서 조각 하기 가능
+- outliner의 설정에서 box geometry를 수정 brush settings에서 크기수정을 추천, cm단위니까 0을 더붙여서 크기조절
+- box brush를 하나 더 만들고, 이전의 박스를 좀 더 크게
+방금 생성한 box는 설정에서 brush type을 subtract로 변경
+- ctrl + s 로 저장 루트폴더에서 main으로 설정
+- settrings > project settings > maps & modes 
+    - editor startup map, game default map을 설정  
+- alt 를 누른 채 position 핀을 움직이면 복사가능
+- outliner에서 move to > create new folder > 오브젝트 묶기 가능
+
+## 12. materials and lighting
+- bp창에서 ctrl + a , ctrl + s로 복사 후 새로운 레벨로 가서 붙여넣기
+- light source를 회전시켜 그림자의 방향 조절가능
+
+## 13. actor components
+- 지지대에 선반을 올려도 하나의 아이템처럼 구성되어 있지 않음
+- content에서 화면으로 드래그가 아닌 detail의 meshcomponent로 넣어줌 > static mesh components의 자식으로 설정
+- 이 때 자식의 position은 부모를 기준 상대적으로 표시
+
+## 14. collision meshes
+- 배럴을 쌓아 올렸을 때 퉁하고 튕겨져 올라감 > unreal에서 처리하는 물리 효과 때문 좌상단 lit을 틀러서 탭에서 구조 및 mesh 확인가능
+- content에서 object를 더블클릭하면 해당 오브젝트의 mesh확인가능
+- 툴바의 collision 버튼에서 remove collision을 클릭하면 모든 충돌을 제거 > 땅을 뚫고 떨어져버림 > 충돌을 못하니까
+- 툴바의 10DOP-Z simplified collision
+    - 4개의 z축 정렬 모서리가 기울어진 box collision mesh를 생성
+
+## 15. Variables
+- bp를 이용해 생성
+- level bp > windows > My Blueprint > variables
+- ammo > int로 생성
+- default값 생성을 하려면 왼쪽 위 compile > detail창에서 default value 설정
+- my bp창에서 bp로 변수를 그대로 드래그해서 level bp에서 사용가능 
+    - get > 값을 가져오고  (ctrl 누른채 드래그)
+    - set > 값을 수정     (alt 누른채 드래그)
+- 언제 set을 할지 알려주는 실행핀이 필요
+- begin play에서 처음으로 setting 하기
+    - print string(게임시작 안내)핀 다음 새로운 print string핀 생성
+    - get ammo(ctrl)의 return 값을 print string의 파란 노드로 연결 
+    - subtract 검색후 노드 생성 (ctrl)로 ammo를 가져오고 변수연결
+    - 빈칸에 숫자 1 입력 후 return 핀에 set ammo를 가져옴 
+    - > 모양 실행핀을 add impulse에서 끌어서 연결해줌
+    - 그후 print string을 가져와 return값을 연결하고 실행핀을 연결
