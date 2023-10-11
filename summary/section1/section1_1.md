@@ -81,7 +81,7 @@
 - 레벨 블루프린트에서 plyer pawn 에서 get actor rotation을 사용
 - 이것을 spawn actor의 transform rotation으로 연결
 - 카메라의 회전과 actor pawn의 회전을 별개로 취급함
-    - 그회전을 반영하기위해 player pawn의 get control ratation을 사용
+    - 그회전을 반영하기위해 player pawn의 get control rotation을 사용
 
 ## 10. get forward vecotr
 - 위에서 작업한 대로 하면 발사되는 발사체는 카메라 회전의 영향을 받게 됨.
@@ -137,3 +137,12 @@
     - 빈칸에 숫자 1 입력 후 return 핀에 set ammo를 가져옴 
     - > 모양 실행핀을 add impulse에서 끌어서 연결해줌
     - 그후 print string을 가져와 return값을 연결하고 실행핀을 연결
+
+## booleans and branches
+- branch node -> 분기노드
+- greater 검색 및 추가
+- ammo변수를 ctrl클릭으로 끌어온뒤 분기노드에 연결
+- greater노드에서 branch노드를 추가 
+- space bar의 실행핀을 branch에 연결
+- true를 actor spawn에 연결
+- false에 print string으로 out of ammo 출력
