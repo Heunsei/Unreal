@@ -138,7 +138,7 @@
     - > 모양 실행핀을 add impulse에서 끌어서 연결해줌
     - 그후 print string을 가져와 return값을 연결하고 실행핀을 연결
 
-## booleans and branches
+## 16. booleans and branches
 - branch node -> 분기노드
 - greater 검색 및 추가
 - ammo변수를 ctrl클릭으로 끌어온뒤 분기노드에 연결
